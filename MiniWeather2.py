@@ -9,11 +9,7 @@ import datetime
 import sys
 import requests
 
-# This sets the tokens for sending data to Ubidots
-DEVICE="My-Devince-Name"
-TOKEN="My=Special-Token"
-
-#Start OLED
+#Start OLED, Removed from Output
 oledExp.driverInit()
 
 while True:
@@ -52,7 +48,7 @@ while True:
         print "Temperature in Fahrenheit : %.2f F" %fTemp
         #Send Data to Ubidots
         payload = {'temperature': fTemp, 'humidity': humidity, 'barometricpressure':pressure }
-        r=requests.post('http://things.ubidots.com/api/v1.6/devices/DEVICE/?token=TOKEN', data=payload)
+        r=requests.post('http://things.ubidots.com/api/v1.6/devices/My-Devince-Name/?token=My-Special-Token', data=payload)
         print "Sent data to Ubidots"
         print data
         print {'temperature': fTemp, 'humidity': humidity, 'barometricpressure':pressure }
